@@ -2,19 +2,17 @@ package org.example.command;
 
 import org.example.service.FileService;
 
-public class SaveFileCommand implements Command {
+public class DeleteFileCommand implements Command {
     private FileService fileService;
     private String filePath;
-    private String fileContent;
 
-    public SaveFileCommand(FileService fileService, String filePath, String fileContent) {
+    public DeleteFileCommand(FileService fileService, String filePath) {
         this.fileService = fileService;
         this.filePath = filePath;
-        this.fileContent = fileContent;
     }
 
     @Override
     public void execute() {
-        fileService.saveFile(filePath, fileContent);
+        fileService.deleteFile(filePath);
     }
 }
