@@ -1,9 +1,6 @@
 package org.example.controller;
 
-import org.example.command.Command;
-import org.example.command.DeleteFileCommand;
-import org.example.command.ReadFileCommand;
-import org.example.command.SaveFileCommand;
+import org.example.command.*;
 import org.example.encryption.AESEncryptionStrategy;
 import org.example.encryption.EncryptionStrategy;
 import org.example.service.EncryptionFileService;
@@ -27,6 +24,11 @@ public class FileController {
     public void readFile(String fileName) {
         Command readFile = new ReadFileCommand(fileService, fileName);
         readFile.execute();
+    }
+
+    public void restoreFile(String fileName) {
+        Command restoreFile = new RestoreFileCommand(fileService, fileName);
+        restoreFile.execute();
     }
 
     public void saveFileEncrypted(String fileName, String fileContent) {

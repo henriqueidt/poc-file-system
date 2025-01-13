@@ -11,8 +11,9 @@ public class Main {
         fileController.saveFileEncrypted("example.txt", "aefuiahefuiaehufaehf");
 
 
-//        fileController.deleteFile("example.txt");
         fileController.readFile("example.txt");
         fileController.readFileEncrypted("example.txt");
+        fileController.deleteFile("example.txt");
+        fileController.restoreFile("example.txt");
     }
 }
