@@ -6,6 +6,8 @@ import org.example.encryption.EncryptionStrategy;
 import org.example.service.EncryptionFileService;
 import org.example.service.FileService;
 
+import java.util.List;
+
 public class FileController {
     private final FileService fileService = new FileService();
     private final EncryptionStrategy encryptionStrategy = new AESEncryptionStrategy();
@@ -39,5 +41,15 @@ public class FileController {
     public void readFileEncrypted(String fileName) {
         Command readFile = new ReadFileCommand(encryptionFileService, fileName);
         readFile.execute();
+    }
+
+    public void listFiles() {
+        Command listFiles = new ListFilesCommand(fileService);
+        listFiles.execute();
+    }
+
+    public String searchFile(String name) {
+        CommandWithStringReturn searchFile = new SearchFileCommand(fileService, name);
+        return searchFile.execute();
     }
 }

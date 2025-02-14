@@ -15,5 +15,10 @@ public class Main {
         fileController.readFileEncrypted("example.txt");
         fileController.deleteFile("example.txt");
         fileController.restoreFile("example.txt");
+
+        fileController.listFiles();
+
+        String fileName = fileController.searchFile("example");
+        System.out.println(fileName + " found");
     }
 }

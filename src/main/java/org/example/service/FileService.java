@@ -72,5 +72,30 @@ public class FileService {
         }
     }
 
+    public void listFiles() {
+        File folder = new File(STORAGE_DIR);
+        File[] listOfFiles = folder.listFiles();
+        if(listOfFiles != null) {
+            for (File file : listOfFiles) {
+                if (file.isFile()) {
+                    System.out.println("File " + file.getName());
+                }
+            }
+        }
+    }
+
+    public String searchFile(String name) {
+        File folder = new File(STORAGE_DIR);
+        File[] listOfFiles = folder.listFiles();
+        if(listOfFiles != null) {
+            for (File file : listOfFiles) {
+                if (file.isFile() && file.getName().contains(name)) {
+                    System.out.println("Found File " + file.getName());
+                    return file.getName();
+                }
+            }
+        }
+        return null;
+    }
 
 }
